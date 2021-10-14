@@ -1,5 +1,5 @@
 {
-  "app": "sbt run",
+  "app": "sbt \"project infra\" run",
   "context": {
   }
 }

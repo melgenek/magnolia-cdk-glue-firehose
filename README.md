@@ -7,7 +7,7 @@ Glue/Firehose and other aws resources are created with [aws-cdk](https://github.
 2) Init cdk (this action is required only once per account+region). 
 Execute only if nobody used cdk in your aws account.
 ``` 
-cdk bootstrap --bootstrap-bucket-name cdk-toolkit-bootstrap
+cdk bootstrap --bootstrap-bucket-name cdk-demo-bootstrap
 ```
 
 ### Usage
@@ -22,18 +22,18 @@ cdk deploy
 ```
 3) Send a sample event to firehose
 ```
-aws firehose put-record --delivery-stream-name melgenek_test_firehose --record file://notification-example.json
+sbt "project client" run
 ```
 4) Add partitions to the table
 ```
-MSCK REPAIR TABLE melgenek_test.melgenek_test;
+MSCK REPAIR TABLE demo.events;
 ```
 5) Query Athena
 ```
-SELECT * FROM melgenek_test.melgenek_test limit 10;
+SELECT * FROM demo.events limit 10;
 ```
 6) Delete the stack when it is not needed any more
 ```
-aws s3 rm --recursive s3://melgenek-test-firehose
+aws s3 rm --recursive s3://demo-purchase-events
 cdk destroy
 ```
