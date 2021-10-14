@@ -40,7 +40,7 @@ object GlueSchemaGenerator {
   implicit val StringSchema: GlueSchemaGenerator[String] = () => Scalar(Schema.STRING)
   implicit val BooleanSchema: GlueSchemaGenerator[Boolean] = () => Scalar(Schema.BOOLEAN)
   implicit val LongSchema: GlueSchemaGenerator[Long] = () => Scalar(Schema.BIG_INT)
-  implicit val IntSchema: GlueSchemaGenerator[Int] = () => Scalar(Schema.BIG_INT)
+  implicit val IntSchema: GlueSchemaGenerator[Int] = () => Scalar(Schema.INTEGER)
   implicit val DoubleSchema: GlueSchemaGenerator[Double] = () => Scalar(Schema.DOUBLE)
   implicit val FloatSchema: GlueSchemaGenerator[Float] = () => Scalar(Schema.DOUBLE)
 }
